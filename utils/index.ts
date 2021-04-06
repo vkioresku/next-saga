@@ -1,0 +1,1 @@
+export { logText } from './functions';

@@ -2,8 +2,9 @@ import React from 'react';
 import App, { AppContext } from 'next/app';
 import Head from 'next/head';
 import { END } from 'redux-saga';
-import { SagaStore, wrapper } from '../utils/redux/store';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+import { SagaStore, wrapper } from '@State';
 
 export interface ITheme {
   niceBlack: string;

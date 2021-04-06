@@ -11,9 +11,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div>This is an svg</div>
-        <Cube />
-        <div>This is a button</div>
         <Button onClick={() => console.log('click')} />
       </div>
     </div>

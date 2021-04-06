@@ -20,7 +20,8 @@
       "@Components": ["components"],
       "@State/*": ["state/*"],
       "@State": ["state"],
-      "@Utils": ["utils"]
+      "@Utils": ["utils"],
+      "@Styles": ["styles"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],

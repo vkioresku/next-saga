@@ -5,25 +5,7 @@ import { END } from 'redux-saga';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import { SagaStore, wrapper } from '@State';
-
-export interface ITheme {
-  niceBlack: string;
-}
-
-export interface IThemeWrapper {
-  theme: ITheme;
-}
-
-export const theme: ITheme = {
-  niceBlack: '#001F3F',
-};
-
-const GlobalStyle = createGlobalStyle<IThemeWrapper>`
-  body {
-    margin: 0 auto;
-    color: ${(props) => props.theme.niceBlack}; 
-  }
-`;
+import { theme, GlobalStyle } from '@Styles';
 
 class DarqubeApp extends App {
   getInitialProps = async ({ Component, ctx }: AppContext) => {

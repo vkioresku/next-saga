@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-import Cube from '@Public/svg/cube.svg';
 import { Button } from '@Components/common';
 
 export default function Home() {

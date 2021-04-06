@@ -2,6 +2,13 @@
   "presets": ["next/babel"],
   "plugins": [
     [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": { "@Public": "public" }
+      }
+    ],
+    [
       "styled-components",
       {
         "ssr": true,

@@ -1,4 +1,7 @@
 import Head from 'next/head';
+
+import Cube from '@Public/svg/cube.svg';
+import { Button } from '@Components/common';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -59,6 +62,10 @@ export default function Home() {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
+        <div>
+          This is a test SVG <Cube />
+        </div>
+        <Button onClick={() => console.log('click')} />
       </footer>
     </div>
   );

@@ -1,8 +1,16 @@
 import Head from 'next/head';
 
 import { Button } from '@Components/common';
+import { useSelector } from 'react-redux';
+import { wrapper, SagaStore } from '@State';
+import { loadData } from '@State/actions';
+import { END } from 'redux-saga';
 
-export default function Home() {
+const Home = () => {
+  const placeholderData = useSelector(
+    (state: { placeholderData: [] }) => state.placeholderData
+  );
+
   return (
     <div>
       <Head>
@@ -12,6 +20,22 @@ export default function Home() {
       <div>
         <Button onClick={() => console.log('click')} />
       </div>
+      {placeholderData && (
+        <pre>
+          <code>{JSON.stringify(placeholderData, null, 2)}</code>
+        </pre>
+      )}
     </div>
   );
-}
+};
+
+export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
+  if (!store.getState()?.placeholderData) {
+    store.dispatch(loadData());
+    store.dispatch(END);
+  }
+
+  await (store as SagaStore).sagaTask.toPromise();
+});
+
+export default Home;

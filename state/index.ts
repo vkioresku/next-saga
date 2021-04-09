@@ -1,9 +1,8 @@
-import { applyMiddleware, createStore, Store } from 'redux';
+import { applyMiddleware, createStore, Store, combineReducers } from 'redux';
 import createSagaMiddleware, { Task } from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import { rootSaga, rootReducer } from './ducks';
 
 export interface SagaStore extends Store {
   sagaTask: Task;

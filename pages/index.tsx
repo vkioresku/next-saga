@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { Button } from '@Components/common';
 import { useSelector } from 'react-redux';
 import { wrapper, SagaStore } from '@State';
-import { loadData } from '@State/actions';
+import { loadData } from '@State/ducks/post/actions';
 import { END } from 'redux-saga';
 
 const Home = () => {
   const placeholderData = useSelector(
-    (state: { placeholderData: [] }) => state.placeholderData
+    (state: { posts: { postsResponse: [] } }) => state.posts.postsResponse
   );
 
   return (
@@ -30,7 +30,7 @@ const Home = () => {
 };
 
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
-  if (!store.getState()?.placeholderData) {
+  if (!store.getState()?.posts?.postsResponse) {
     store.dispatch(loadData());
     store.dispatch(END);
   }

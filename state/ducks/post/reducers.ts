@@ -1,16 +1,17 @@
-import { actionTypes } from '../actions';
+import { actionTypes } from './types';
 import { HYDRATE } from 'next-redux-wrapper';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case HYDRATE: {
-      return { ...state, ...action.payload };
-    }
+const INITIAL_STATE = {
+  postsResponse: null,
+  error: '',
+};
 
+const posts = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
     case actionTypes.LOAD_DATA_SUCCESS:
       return {
         ...state,
-        ...{ placeholderData: action.data },
+        ...{ postsResponse: action.data },
       };
 
     case actionTypes.FAILURE:
@@ -24,4 +25,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default reducer;
+export default posts;

@@ -5,8 +5,4 @@ import { ContainerProps } from './Container';
 export const Container: React.FC<ContainerProps> = ({
   children,
   maxWidth = 'xl',
-}) => (
-  <S.Container fixed maxWidth={maxWidth}>
-    {children}
-  </S.Container>
-);
+}) => <S.Container maxWidth={maxWidth}>{children}</S.Container>;

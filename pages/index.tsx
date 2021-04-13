@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Button, Container } from '@Components/common';
+import { Button } from '@Components/common';
 import { useSelector } from 'react-redux';
 import { wrapper, SagaStore } from '@State';
 import { loadData } from '@State/ducks/post/actions';
@@ -20,9 +20,6 @@ const Home = () => {
       <div>
         <Button onClick={() => console.log('click')} />
       </div>
-      <Container>
-        <div style={{ background: 'green', height: 200, width: '100%' }} />
-      </Container>
       {placeholderData && (
         <pre>
           <code>{JSON.stringify(placeholderData, null, 2)}</code>

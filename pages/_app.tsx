@@ -2,7 +2,8 @@ import React from 'react';
 import App, { AppContext } from 'next/app';
 import Head from 'next/head';
 import { END } from 'redux-saga';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import { SagaStore, wrapper } from '@State';
 import { theme, GlobalStyle } from '@Styles';
@@ -38,8 +39,10 @@ class DarqubeApp extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Component {...pageProps} />
+          <MuiThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </MuiThemeProvider>
         </ThemeProvider>
       </React.Fragment>
     );

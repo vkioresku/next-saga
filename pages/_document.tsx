@@ -1,10 +1,12 @@
 import React from 'react';
 import Document, { Head, Main, NextScript, Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/styles';
 
-export default class MyDocument extends Document<any> {
+export default class DarQubeAppDocument extends Document<any> {
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheet();
+    const styledComponentsSheet = new ServerStyleSheet();
+    const materialUISheets = new MaterialUiServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
     try {
@@ -12,7 +14,9 @@ export default class MyDocument extends Document<any> {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+            styledComponentsSheet.collectStyles(
+              materialUISheets.collect(<App {...props} />)
+            ),
         });
 
       // extract the initial props that may be present.
@@ -24,12 +28,13 @@ export default class MyDocument extends Document<any> {
         styles: (
           <>
             {initialProps.styles}
-            {sheet.getStyleElement()}
+            {styledComponentsSheet.getStyleElement()}
+            {materialUISheets.getStyleElement()}
           </>
         ),
       };
     } finally {
-      sheet.seal();
+      styledComponentsSheet.seal();
     }
   }
 

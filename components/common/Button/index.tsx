@@ -1,5 +1,5 @@
-import * as S from './styles';
 import Cube from '@Public/svg/cube.svg';
+import * as S from './styles';
 
 import { ButtonProps } from './Button';
 

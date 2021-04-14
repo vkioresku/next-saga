@@ -1,16 +1,68 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true }
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
   "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/strict",
+    "prettier",
     "plugin:prettier/recommended",
-    "plugin:prettier/react",
-    "plugin:prettier/@typescript-eslint"
+    "airbnb-typescript-prettier"
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "no-use-before-define": [0],
+    "@typescript-eslint/no-use-before-define": [1],
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "import/no-unresolved": "error",
+    "jsx-a11y/label-has-for": [0],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["CustomInputLabel"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["CustomInput"],
+        "depth": 3
+      }
+    ]
   },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/interface-name-prefix": "off",
+        "import/no-unresolved": "off",
+        "jsx-a11y/anchor-is-valid": [
+          "error",
+          {
+            "components": ["Link"],
+            "specialLink": ["hrefLeft", "hrefRight"],
+            "aspects": ["invalidHref", "preferButton"]
+          }
+        ]
+      }
+    }
+  ],
   "globals": {
     "React": "writable"
   },

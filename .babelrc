@@ -5,7 +5,11 @@
       "module-resolver",
       {
         "root": ["."],
-        "alias": { "@Public": "public" }
+        "alias": {
+          "@Public": "./public",
+          "@Pages": "./pages",
+          "@Styles": "./styles"
+        }
       }
     ],
     [

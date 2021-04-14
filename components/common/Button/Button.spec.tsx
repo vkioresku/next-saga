@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../../../test/test-utils';
+import { render } from '@Test';
 import { Button } from '.';
 
 describe('Button', () => {

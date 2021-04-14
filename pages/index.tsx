@@ -6,7 +6,7 @@ import { wrapper, SagaStore } from '@State';
 import { loadData } from '@State/ducks/post/actions';
 import { END } from 'redux-saga';
 
-const Home = () => {
+const Home: React.FC = () => {
   const placeholderData = useSelector(
     (state: { posts: { postsResponse: [] } }) => state.posts.postsResponse
   );
@@ -18,7 +18,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Button onClick={() => console.log('click')} />
+        <Button onClick={() => 'click'} />
       </div>
       {placeholderData && (
         <pre>

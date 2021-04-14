@@ -8,6 +8,4 @@ export default {
   component: Button,
 } as Meta;
 
-export const Default = () => (
-  <Button onClick={() => console.log('Button has been clicked')} />
-);
+export const Default: React.FC = () => <Button onClick={() => 'click'} />;

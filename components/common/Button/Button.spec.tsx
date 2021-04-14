@@ -4,6 +4,6 @@ import { Button } from '.';
 
 describe('Button', () => {
   it('should render without crashing', () => {
-    render(<Button onClick={() => console.log('click')} />);
+    render(<Button onClick={() => 'click'} />);
   });
 });

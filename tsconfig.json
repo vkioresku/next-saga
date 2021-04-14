@@ -21,7 +21,8 @@
       "@State/*": ["state/*"],
       "@State": ["state"],
       "@Utils": ["utils"],
-      "@Styles": ["styles"]
+      "@Styles": ["styles"],
+      "@Test": ["test"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],

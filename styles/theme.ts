@@ -24,4 +24,5 @@ export const theme = createMuiTheme({
     grey: '#F2F2F2',
     black: '#000000',
   },
+  spacing: 5,
 });

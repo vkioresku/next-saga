@@ -1,10 +1,18 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Document, { Head, Main, NextScript, Html } from 'next/document';
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  Html,
+  DocumentContext,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/styles';
 
-export default class DarQubeAppDocument extends Document<any> {
-  static async getInitialProps(ctx) {
+class DarQubeAppDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
     const styledComponentsSheet = new ServerStyleSheet();
     const materialUISheets = new MaterialUiServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
@@ -38,12 +46,10 @@ export default class DarQubeAppDocument extends Document<any> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html>
-        <Head>
-          {this.props.styleTags /*rendering the actually stylesheet*/}
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
@@ -52,3 +58,5 @@ export default class DarQubeAppDocument extends Document<any> {
     );
   }
 }
+
+export default DarQubeAppDocument;

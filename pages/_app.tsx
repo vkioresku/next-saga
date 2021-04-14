@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import App, { AppContext } from 'next/app';
 import Head from 'next/head';
@@ -33,7 +34,7 @@ class DarqubeApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <Head>
           <title>Darqube</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,7 +45,7 @@ class DarqubeApp extends App {
             <Component {...pageProps} />
           </MuiThemeProvider>
         </ThemeProvider>
-      </React.Fragment>
+      </>
     );
   }
 }

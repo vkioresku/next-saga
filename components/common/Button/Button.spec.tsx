@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '../../../test/test-utils';
+import { render } from '@Test';
 import { Button } from '.';
 
 describe('Button', () => {
   it('should render without crashing', () => {
-    render(<Button onClick={() => console.log('click')} />);
+    render(<Button onClick={() => 'click'} />);
   });
 });
